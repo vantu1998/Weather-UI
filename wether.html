@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wether Today</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="weather.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div style="position: relative;" class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <a class="navbar-brand" href="#">
+                <img src="brand.PNG" alt=""> Wether Today
+            </a>
+            <ul style="position: absolute; left: 46%;" class="navbar-nav">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="#">
+                        Home
+                    </a>
+                </li>
+            </ul>
+            <ul style="position: absolute; right: 0%;" class="navbar-nav">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="#">
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body container-fluid">
+        <div id="card" class="card">
+            <a onclick="getData()">
+                <p class="mt-3 mb-5 text-primary">Get Weather</p>
+                <img src="cong.PNG" alt="">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        var data;
+
+        function getData() {
+            axios.get("https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=21.0313&lon=105.8151&APPID=84c375472712a1a880ffba2edbc74476").then(function(res) {
+                data = JSON.stringify(res.data);
+                console.log(data);
+            })
+        }
+    </script>
+</body>
+
+</html>
